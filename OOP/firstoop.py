@@ -6,8 +6,17 @@ class Atm:
     # constructor(Special function)
     def __init__(self):
         self.pin = ''
-        self.balance = 0
+        self.__balance = 0
         self.menu()
+
+    def get_balance(self):
+        return self.__balance
+
+    def set_balance(self, new_value):
+        if type(new_value) == int:
+            self.__balance = new_value
+        else:
+            print('Not Valid')
 
     def menu(self):
         user_input = input("""
@@ -40,7 +49,7 @@ class Atm:
         self.pin = user_pin
 
         user_balance = int(input('Enter balance: '))
-        self.balance = user_balance
+        self.__balance = user_balance
 
         print('Pin created Successfully:')
         self.menu()
@@ -60,10 +69,10 @@ class Atm:
     def check_balance(self):
         user_pin = input('enter ypur pin')
         if user_pin == self.pin:
-            print('your balance is ',self.balance)
+            print('your balance is ',self.__balance)
             self.menu()
         else:
-            print('chal nikal yha se')
+            print('chal nikal yha se:')
             self.menu()
 
     def withdraw(self):
@@ -71,9 +80,9 @@ class Atm:
         if user_pin == self.pin:
             # allow to withdraw
             amount = int(input('enter your amount how much you want: '))
-            if amount <= self.balance:
-                self.balance = self.balance - amount
-                print('Withraw Successfull balance is', self.balance)
+            if amount <= self.__balance:
+                self.__balance = self.__balance - amount
+                print('Withraw Successfull balance is', self.__balance)
             else:
                 print('Insufficient Balance')
         else:
@@ -81,5 +90,7 @@ class Atm:
         self.menu()
 
 obj = Atm()
+obj.get_balance()
+obj.set_balance(1000)
 
 
