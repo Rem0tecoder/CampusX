@@ -1,0 +1,110 @@
+# syntax to create an object
+#objectname = classname()
+
+class Atm:
+    # Static var
+    __counter = 1
+
+    # constructor(Special function)
+    def __init__(self):
+        self.pin = ''
+        self.__balance = 0
+        self.cid = Atm.__counter
+        Atm.__counter = Atm.__counter + 1
+        # self.menu()
+
+    # utility functions
+    @staticmethod
+    def get_counter():
+        return Atm.__counter
+
+    def get_balance(self):
+        return self.__balance
+
+    def set_balance(self, new_value):
+        if type(new_value) == int:
+            self.__balance = new_value
+        else:
+            print('Not Valid')
+
+    def menu(self):
+        user_input = input("""
+        Hi how can I help you?
+        1. Press 1 to  create pin
+        2. press 2 to change pin
+        3. Press 3 to check balance
+        4. Press 4 to withdrawl 
+        5. Anything else to exit
+        """)
+
+        if user_input == '1':
+            # create pin
+            self.create_pin()
+        elif user_input == '2':
+            #change pin
+            self.change_pin()
+        elif user_input == '3':
+            # check balanace
+            self.check_balance()
+        elif user_input == '4':
+            # withrawl
+            self.withdraw()
+            pass
+        else:
+            exit()
+
+    def create_pin(self):
+        user_pin = (input('Enter your pin: '))
+        self.pin = user_pin
+
+        user_balance = int(input('Enter balance: '))
+        self.__balance = user_balance
+
+        print('Pin created Successfully:')
+        self.menu()
+
+    def change_pin(self):
+        old_pin = input('enter old pin: ')
+
+        if old_pin == self.pin:
+            # Let him change the pin
+            new_pin = input('enter new pin: ')
+            self.pin = new_pin  
+            print('Pin change successfully')
+            self.menu()
+        else:
+            print('Unable to change the pin')
+            self.menu()
+    def check_balance(self):
+        user_pin = input('enter ypur pin')
+        if user_pin == self.pin:
+            print('your balance is ',self.__balance)
+            self.menu()
+        else:
+            print('chal nikal yha se:')
+            self.menu()
+
+    def withdraw(self):
+        user_pin = input('enter your pin: ')
+        if user_pin == self.pin:
+            # allow to withdraw
+            amount = int(input('enter your amount how much you want: '))
+            if amount <= self.__balance:
+                self.__balance = self.__balance - amount
+                print('Withraw Successfull balance is', self.__balance)
+            else:
+                print('Insufficient Balance')
+        else:
+            print('Wrong Pin:')
+        self.menu()
+
+# c1 = Atm()
+# c2 = Atm()
+# c3 = Atm()
+#print(c1.cid)
+#print(c2.cid)
+#print(c3.cid)
+print(Atm.get_counter())
+
+
+
