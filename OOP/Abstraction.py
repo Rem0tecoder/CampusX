@@ -8,12 +8,22 @@ class BankApp(ABC):
     def security(self):
         pass
 
+    @abstractmethod
+    def display(self):
+        pass
+
 class MobileApp(BankApp):
 
     def nobile_login(self):
         print('login into mobile')
 
     def security(self):
-        print('Mobile securoty')
+        print('Mobile security')
+
+    def display(self):
+        print('display')
 
 mob = MobileApp()
+mob.database()
+mob.security()
+mob.display()
