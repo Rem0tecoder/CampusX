@@ -48,3 +48,13 @@ with open('sample.txt', 'w') as f:
 with open('Screenshot1.png', 'rb') as f:
     with open('screenshot_copy.png', 'wb') as wf:
         wf.write(f.read())
+
+
+d = {
+    'name' : 'Saurabh',
+    'age':'23',
+    'gender' : 'male'
+}
+
+with open('saample1.txt', 'w') as f:
+    f.write(str(d))
