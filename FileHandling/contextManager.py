@@ -42,3 +42,9 @@ with open('sample.txt', 'w') as f:
     f.write('hello')
     f.seek(0)
     f.write('x')
+
+
+# working withn binary
+with open('Screenshot1.png', 'rb') as f:
+    with open('screenshot_copy.png', 'wb') as wf:
+        wf.write(f.read())
