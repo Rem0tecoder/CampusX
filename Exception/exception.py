@@ -14,6 +14,7 @@ except:
 try:
     f =open('saample.txt', 'r')
     print(f.read())
+    m = 5
     print(m)
     L = [1,2,3]
     print(L[100])
@@ -25,3 +26,28 @@ except NameError:
 # generic exception
 except Exception as e:
     print(e)
+
+
+# Else 
+try:
+    f = open('saample.txt', 'r')
+except FileNotFoundError:
+    print('Not found')
+except Exception:
+    print('Something is wrong')
+else:
+    print(f.read())
+
+# Finally
+try:
+    f = open('saample.txt', 'r')
+except FileNotFoundError:
+    print('Not found')
+except Exception:
+    print('Something is wrong')
+else:
+    print(f.read())
+finally:
+    print('This is got printed')
+
+# Raise Exception
