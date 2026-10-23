@@ -53,4 +53,25 @@ print(np.histogram(a,bins=[0,10,20,30,40,50,60,70,80,90,100]))
 # np.corrcoef
 salary = np.array([10000,20000,35000,40000,50000])
 experience = np.array([1,2,3,4,5])
-print(np.corrcoef(salary,experience)) 
+print(np.corrcoef(salary,experience))
+
+# np.isin
+items = [10,20,30,40,50,60,70,80,80,100]
+print(a[np.isin(a,items)])
+
+# np.put
+print(np.put(a,[0,1],[110,300]))
+print(a)
+
+# Set Functions
+# np.union1d
+m = np.array([1,2,3,4,5])
+n = np.array([3,4,5,6,7])
+print(np.union1d(m,n))
+print(np.intersect1d(m,n))
+print(np.setdiff1d(m,n))
+print(np.setxor1d(m,n))
+print(np.in1d(m,n))
+
+# np.clip
+print(np.clip(a,a_min=25,a_max=75))
