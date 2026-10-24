@@ -18,3 +18,39 @@ print(pd.Series(marks,index = subjects))
 marks = [67,56,89,100]
 subjects = ['maths', 'english', 'science', 'hindi']
 print(pd.Series(marks,index = subjects, name= 'Bob marks'))
+
+# Series from dict
+marks = {
+    'english': 67,
+    'hindi': 99,
+    'science': 90,
+    'python': 98
+}
+
+marks_series  =pd.Series(marks, name='Bob Marks')
+print(marks_series)
+
+# Series Attributs
+# size
+print(marks_series.size)
+
+#dtype
+print(marks_series.dtype)
+
+# name
+print(marks_series.name)
+
+# is_unique
+print(marks_series.is_unique)
+
+# index
+print(marks_series.index)
+
+# Values
+print(marks_series.values)
+
+
+# Series using read_csv
+# with one col
+subs = pd.read_csv(r"C:\Users\eryad\Downloads\subs.csv").squeeze('columns')
+print(subs)
