@@ -54,3 +54,24 @@ print(marks_series.values)
 # with one col
 subs = pd.read_csv(r"C:\Users\eryad\Downloads\subs.csv").squeeze('columns')
 print(subs)
+
+# with 2 cols
+runs = pd.read_csv(r"C:\Users\eryad\Downloads\kohli_ipl.csv",index_col= 'match_no').squeeze('columns')
+print(runs)
+
+# Bollywood movies
+mv = pd.read_csv(r"C:\Users\eryad\Downloads\bollywood.csv", index_col= 'movie').squeeze('columns')
+print(mv)
+
+# Series Method
+
+# Head and tail
+print(subs.head())
+print(runs.head(3))
+
+print(runs.tail(10))
+
+# Sample
+print(mv.sample(10))
+
+#
