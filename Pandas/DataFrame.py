@@ -137,3 +137,31 @@ print(df)
 df = movie[(movie['imdb_rating']> 8) &
             (movie['imdb_votes'] > 10000)].shape[0]
 print(df)
+
+# Action movies with rating higher than 7.5
+df = movie['genres'].str.split('|').apply(lambda x: 'Action' in x)
+df2 = movie['imdb_rating'] > 7.5
+print(movie[df & df2])
+
+# Adding new columns
+df = movie['country'] = 'India'
+movie.head(2)
+print(df)
+
+# from existing col
+df = movie.dropna(inplace=True)
+movie['lead actor'] = movie['actors'].str.split('|').apply(lambda x: x[0])
+movie.head(2)
+print(df)
+
+# DataFrame Functions
+# astype
+print(ipl.info())
+
+x = ipl['ID']= ipl['ID'].astype('int32')
+print(x)
+print(ipl.info())
+
+df = ipl['Season'] = ipl['Season'].astype('category')
+print(df)
+print(ipl.info())
