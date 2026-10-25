@@ -74,4 +74,94 @@ print(runs.tail(10))
 # Sample
 print(mv.sample(10))
 
-#
+# value_count -> movies
+print(mv.value_counts())
+
+# sort_values - > inplace
+print(runs.sort_values(ascending=False))
+print(runs.sort_values(ascending=False).head(1).values[0])
+
+# sort_index -> inplace -> movies
+print(mv.sort_index())
+
+
+# Series Math Methods
+# count
+print(mv.count())
+print(runs.count())
+
+# sum -> product
+print(subs.sum())
+print(runs.sum())
+
+# mean median Mode std var
+print(subs.mean())
+print(runs.median())
+print(mv.mode())
+print(subs.std())
+print(subs.var())
+
+# min/max
+print(subs.min())
+print(subs.max())
+
+# describe
+print(runs.describe())
+
+
+# series Indexing
+# int indexing
+'''x = pd.Series[12,23,34,45,56,67,78]
+print(x[0])'''
+
+print(mv[0])
+
+# slicing
+print(runs[5:16])
+
+# fancy indexing
+print(runs[[1,3,4,5]])
+
+
+# Editing Series
+# using indexing
+marks_series[1] = 100
+print(marks_series)
+
+# what if an index does not exist
+marks_series['sst'] = 90
+print(marks_series)
+
+# Series with Python Functionality
+# len/type/dir/sorted/max/min
+print(len(subs))
+print(type(subs))
+print(dir(subs))
+print(sorted(subs))
+print(min(subs))
+print(max(subs))
+
+# type conversion
+print(dict(marks_series))
+
+# membership operator
+print('Zindagi Tere Naam ' in mv.values)
+
+# looping
+for i in mv.index:
+    print(i)
+
+# Arithmetic 
+print(100 - marks_series)
+
+# Booleaning Indexing
+# find no of 50's and 100's scored by vk
+print(runs[runs > 50].size)
+
+# plotting graph on series
+import matplotlib.pyplot as plt
+subs.plot()
+plt.show()
+
+mv.value_counts().head(20).plot(kind= 'pie')
+plt.show()
